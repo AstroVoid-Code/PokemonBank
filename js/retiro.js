@@ -18,16 +18,24 @@ withdrawForm.addEventListener("submit", function(event) {
     const saldoActual = obtenerSaldo();
 
     if (amount <= 0 || isNaN(amount)) {
-        alert("Ingresa un monto válido.");
-        return;
+        swal({
+            title: "Monto no válido",
+            text: "Ingresa un monto mayor a $0.00.",
+            icon: "warning",
+            button: "Aceptar"
+            });
+             return;
+        
     }
 
     if (amount > saldoActual) {
 
-        alert(
-            "Saldo insuficiente.\n\n" +
-            "Saldo disponible: $" + saldoActual.toFixed(2)
-        );
+        swal({
+            title: "Saldo insuficiente",
+            text: "Tu saldo disponible es de $" + saldoActual.toFixed(2),
+            icon: "error",
+            button: "Aceptar"
+        });
 
         return;
     }
@@ -35,18 +43,21 @@ withdrawForm.addEventListener("submit", function(event) {
     const nuevoSaldo = saldoActual - amount;
 
     guardarSaldo(nuevoSaldo);
-    registrarTransaccion(
-    "Retiro",
-    "Retiro de efectivo",
-    -amount
-);
 
-    alert(
-        "Retiro realizado correctamente.\n\n" +
-        "Monto retirado: $" + amount.toFixed(2) +
-        "\nNuevo saldo: $" + nuevoSaldo.toFixed(2)
+    registrarTransaccion(
+        "Retiro",
+        "Retiro de efectivo",
+        -amount
     );
 
-    window.location.href = "menu.html";
+    swal({
+        title: "¡Retiro realizado!",
+        text: "Monto retirado: $" + amount.toFixed(2) +
+              "\nNuevo saldo: $" + nuevoSaldo.toFixed(2),
+        icon: "success",
+        button: "Aceptar"
+    }).then(() => {
+        window.location.href = "menu.html";
+    });
 
 });

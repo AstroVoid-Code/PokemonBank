@@ -34,69 +34,88 @@ serviceForm.addEventListener("submit", function(event) {
     // Validar servicio
     if (servicio === "") {
 
-        alert("Selecciona un servicio.");
-        return;
+        swal({
+            title: "Selecciona un servicio",
+            text: "Debes elegir el servicio que deseas pagar.",
+            icon: "warning",
+            button: "Aceptar"
+        });
 
+        return;
     }
 
 
     // Validar factura
     if (factura === "") {
 
-        alert("Ingresa el número de factura.");
-        return;
+        swal({
+            title: "Factura requerida",
+            text: "Ingresa el número de factura.",
+            icon: "warning",
+            button: "Aceptar"
+        });
 
+        return;
     }
 
 
     // Validar monto
     if (isNaN(monto) || monto <= 0) {
 
-        alert("Ingresa un monto válido.");
-        return;
+        swal({
+            title: "Monto no válido",
+            text: "Ingresa un monto mayor a $0.00.",
+            icon: "warning",
+            button: "Aceptar"
+        });
 
+        return;
     }
 
 
     // Verificar saldo
     if (monto > saldoActual) {
 
-        alert(
-            "Saldo insuficiente.\n\n" +
-            "Saldo disponible: $" +
-            saldoActual.toFixed(2)
-        );
+        swal({
+            title: "Saldo insuficiente",
+            text: "Tu saldo disponible es de $" +
+                  saldoActual.toFixed(2),
+            icon: "error",
+            button: "Aceptar"
+        });
 
         return;
-
     }
 
 
     // Calcular nuevo saldo
-    const nuevoSaldo =
-        saldoActual - monto;
+    const nuevoSaldo = saldoActual - monto;
 
 
     // Guardar saldo
     guardarSaldo(nuevoSaldo);
+
     registrarTransaccion(
-    "Servicio",
-    servicio,
-    -monto
-);
-
-
-    // Confirmación
-    alert(
-        "Pago realizado correctamente.\n\n" +
-        "Servicio: " + servicio +
-        "\nFactura: " + factura +
-        "\nMonto pagado: $" + monto.toFixed(2) +
-        "\nNuevo saldo: $" + nuevoSaldo.toFixed(2)
+        "Servicio",
+        servicio,
+        -monto
     );
 
 
-    // Regresar al menú
-    window.location.href = "menu.html";
+    // Confirmación
+    swal({
+        title: "¡Pago realizado!",
+        text: "Servicio: " + servicio +
+              "\nFactura: " + factura +
+              "\nMonto pagado: $" + monto.toFixed(2) +
+              "\nNuevo saldo: $" + nuevoSaldo.toFixed(2),
+        icon: "success",
+        button: "Aceptar"
+    }).then(() => {
+
+        // Regresar al menú
+        window.location.href = "menu.html";
+
+    });
 
 });

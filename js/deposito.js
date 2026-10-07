@@ -16,26 +16,39 @@ depositForm.addEventListener("submit", function(event) {
 
     const amount = parseFloat(depositAmount.value);
 
-    if (amount > 0) {
+    if (amount <= 0 || isNaN(amount)) {
 
-        const saldoActual = obtenerSaldo();
+        swal({
+            title: "Monto no válido",
+            text: "Ingresa un monto mayor a $0.00.",
+            icon: "warning",
+            button: "Aceptar"
+        });
 
-        const nuevoSaldo = saldoActual + amount;
+        return;
+    }
 
-        guardarSaldo(nuevoSaldo);
-        registrarTransaccion(
-    "Depósito",
-    "Depósito en cuenta",
-    amount
-);
+    const saldoActual = obtenerSaldo();
+    const nuevoSaldo = saldoActual + amount;
 
-        alert(
-            "Depósito realizado correctamente.\n\n" +
-            "Monto depositado: $" + amount.toFixed(2) +
-            "\nNuevo saldo: $" + nuevoSaldo.toFixed(2)
-        );
+    guardarSaldo(nuevoSaldo);
+
+    registrarTransaccion(
+        "Depósito",
+        "Depósito en cuenta",
+        amount
+    );
+
+    swal({
+        title: "¡Depósito realizado!",
+        text: "Monto depositado: $" + amount.toFixed(2) +
+              "\nNuevo saldo: $" + nuevoSaldo.toFixed(2),
+        icon: "success",
+        button: "Aceptar"
+    }).then(() => {
 
         window.location.href = "menu.html";
-    }
+
+    });
 
 });
