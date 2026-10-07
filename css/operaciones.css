@@ -1,0 +1,447 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f6fb;
+    min-height: 100vh;
+    padding: 40px 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.operation-container {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.operation-header {
+    background: #19376d;
+    color: white;
+    padding: 22px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.operation-header h1 {
+    font-size: 22px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.back-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.operation-content {
+    padding: 35px;
+}
+
+.operation-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.operation-symbol {
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #19376d;
+    color: white;
+
+    border-radius: 50%;
+    font-size: 28px;
+}
+
+.operation-title h2 {
+    color: #19376d;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.operation-title p {
+    color: #6b7280;
+}
+
+form label {
+    font-weight: bold;
+    color: #374151;
+}
+
+.amount-input {
+    display: flex;
+    align-items: center;
+
+    border: 2px solid #dbe2ea;
+    border-radius: 10px;
+
+    margin-top: 8px;
+    margin-bottom: 25px;
+
+    overflow: hidden;
+}
+
+.amount-input span {
+    padding-left: 18px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #19376d;
+}
+
+.amount-input input {
+    width: 100%;
+    padding: 15px;
+
+    border: none;
+    outline: none;
+
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.quick-label {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.quick-amounts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.amount-btn {
+    padding: 12px;
+
+    border: 1px solid #dbe2ea;
+    border-radius: 8px;
+
+    background: #f8fafc;
+    color: #19376d;
+
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.amount-btn:hover {
+    background: #eef4ff;
+    border-color: #19376d;
+}
+
+.btn-confirm {
+    width: 100%;
+    padding: 15px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #19376d;
+    color: white;
+
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-confirm:hover {
+    background: #244f96;
+}
+
+@media (max-width: 576px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .operation-content {
+        padding: 25px 20px;
+    }
+
+    .quick-amounts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* CONSULTA DE SALDO */
+
+.balance-card {
+    background: #f8fafc;
+    border: 2px solid #e5e7eb;
+    border-radius: 15px;
+
+    padding: 30px;
+    margin-bottom: 25px;
+
+    text-align: center;
+}
+
+.balance-card p {
+    color: #6b7280;
+    margin-bottom: 5px;
+}
+
+.balance-card h2 {
+    color: #19376d;
+    font-size: 42px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.balance-card span {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.balance-button {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.balance-button:hover {
+    color: white;
+    text-decoration: none;
+}
+
+/* =========================
+   PAGO DE SERVICIOS
+========================= */
+
+.service-select,
+.service-input {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    margin-top: 8px;
+    margin-bottom: 22px;
+
+    border: 2px solid #dbe2ea;
+    border-radius: 10px;
+
+    background: white;
+
+    font-size: 16px;
+    color: #374151;
+
+    outline: none;
+}
+
+.service-select:focus,
+.service-input:focus {
+    border-color: #19376d;
+}
+
+.available-balance {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+
+    padding: 15px 18px;
+    margin-bottom: 25px;
+}
+
+.available-balance span {
+    color: #6b7280;
+}
+
+.available-balance strong {
+    color: #19376d;
+    font-size: 18px;
+}
+
+/* =========================
+   HISTORIAL
+========================= */
+
+.history-container {
+    width: 100%;
+    max-width: 950px;
+
+    background: white;
+
+    border-radius: 20px;
+    overflow: hidden;
+
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.history-content {
+    padding: 35px;
+}
+
+.history-table {
+    margin-bottom: 25px;
+}
+
+.history-table thead {
+    background: #19376d;
+    color: white;
+}
+
+.history-table th {
+    border: none;
+    padding: 15px;
+}
+
+.history-table td {
+    padding: 15px;
+    vertical-align: middle;
+    border-top: 1px solid #e5e7eb;
+}
+
+.amount-positive {
+    color: #198754;
+    font-weight: bold;
+}
+
+.amount-negative {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.transaction-type {
+    font-weight: bold;
+    color: #19376d;
+}
+
+.empty-history {
+    text-align: center;
+
+    padding: 30px;
+
+    background: #f8fafc;
+
+    border-radius: 10px;
+
+    color: #6b7280;
+
+    margin-bottom: 25px;
+
+    display: none;
+}
+
+@media (max-width: 576px) {
+
+    .history-content {
+        padding: 25px 15px;
+    }
+
+    .history-table {
+        font-size: 13px;
+    }
+}
+
+/* =========================
+   GRÁFICOS
+========================= */
+
+.chart-container {
+    width: 100%;
+    max-width: 850px;
+
+    background: white;
+
+    border-radius: 20px;
+    overflow: hidden;
+
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.chart-content {
+    padding: 35px;
+}
+
+.transaction-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.summary-card {
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    padding: 20px;
+
+    text-align: center;
+}
+
+.summary-card span {
+    display: block;
+
+    color: #6b7280;
+
+    margin-bottom: 8px;
+}
+
+.summary-card strong {
+    color: #19376d;
+
+    font-size: 30px;
+}
+
+.chart-box {
+    position: relative;
+
+    width: 100%;
+    min-height: 350px;
+
+    padding: 20px;
+
+    margin-bottom: 30px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 15px;
+
+    background: #ffffff;
+}
+
+@media (max-width: 576px) {
+
+    .chart-content {
+        padding: 25px 15px;
+    }
+
+    .transaction-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-box {
+        min-height: 280px;
+        padding: 10px;
+    }
+}

@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f6fb;
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: #1f2937;
+}
+
+/* Contenedor principal */
+.atm-container {
+    width: 100%;
+    max-width: 950px;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Encabezado */
+.atm-header {
+    background: #19376d;
+    color: white;
+    padding: 25px 35px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.atm-header h1 {
+    font-size: 28px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.atm-header p {
+    margin: 5px 0 0;
+    color: #dbeafe;
+    font-size: 14px;
+}
+
+/* Información del usuario */
+.user-info {
+    padding: 30px 35px 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.user-info p {
+    color: #6b7280;
+    margin: 0;
+}
+
+.user-info h2 {
+    color: #19376d;
+    font-size: 26px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.user-info span {
+    color: #6b7280;
+}
+
+/* Área de operaciones */
+.operations {
+    padding: 30px 35px 15px;
+}
+
+.operations h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Tarjetas */
+.operation-card {
+    min-height: 140px;
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background: #f8fafc;
+    border: 2px solid #e5e7eb;
+    border-radius: 15px;
+
+    color: #19376d;
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.operation-card:hover {
+    border-color: #19376d;
+    background: #eef4ff;
+    text-decoration: none;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(25, 55, 109, 0.12);
+}
+
+.operation-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 12px;
+
+    background: #19376d;
+    color: white;
+
+    border-radius: 50%;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.operation-card strong {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.operation-card small {
+    color: #6b7280;
+}
+
+/* Historial y gráficos */
+.secondary-options {
+    padding: 5px 35px 35px;
+
+    display: flex;
+    gap: 15px;
+}
+
+.secondary-options .btn {
+    border: 1px solid #dbe2ea;
+    padding: 12px 20px;
+    font-weight: 600;
+    color: #19376d;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .atm-header {
+        padding: 20px;
+    }
+
+    .atm-header h1 {
+        font-size: 22px;
+    }
+
+    .atm-header p {
+        display: none;
+    }
+
+    .user-info,
+    .operations {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .secondary-options {
+        padding: 5px 20px 25px;
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pokémon Bank | Consulta de Saldo</title>
+
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/operaciones.css">
+</head>
+
+<body>
+
+    <div class="operation-container">
+
+        <header class="operation-header">
+
+            <a href="menu.html" class="back-link">
+                ← Volver
+            </a>
+
+            <h1>Pokémon Bank</h1>
+
+        </header>
+
+        <main class="operation-content">
+
+            <div class="operation-title">
+
+                <div class="operation-symbol">
+                    $
+                </div>
+
+                <h2>Saldo disponible</h2>
+
+                <p>Consulta el saldo actual de tu cuenta.</p>
+
+            </div>
+
+            <div class="balance-card">
+
+                <p>Saldo disponible</p>
+
+                <h2 id="currentBalance">
+                    $0.00
+                </h2>
+
+                <span>
+                    Cuenta: •••• 0151
+                </span>
+
+            </div>
+
+            <a href="menu.html" class="btn-confirm balance-button">
+                Volver al menú principal
+            </a>
+
+        </main>
+
+    </div>
+
+    <!-- Primero cargamos los datos -->
+    <script src="js/datos.js"></script>
+
+    <!-- Después la consulta de saldo -->
+    <script src="js/saldo.js"></script>
+
+</body>
+
+</html>

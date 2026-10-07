@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pokémon Bank | Menú Principal</title>
+
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <!-- Nuestro CSS -->
+    <link rel="stylesheet" href="css/menu.css">
+</head>
+
+<body>
+
+    <div class="atm-container">
+
+        <!-- =========================
+             ENCABEZADO
+        ========================== -->
+        <header class="atm-header">
+
+            <div>
+                <h1>Pokémon Bank</h1>
+                <p>Tu dinero, siempre a salvo.</p>
+            </div>
+
+            <a href="index.html" class="btn btn-outline-light">
+                Salir
+            </a>
+
+        </header>
+
+
+        <!-- =========================
+             INFORMACIÓN DEL USUARIO
+        ========================== -->
+        <section class="user-info">
+
+            <p>Bienvenido</p>
+
+            <h2>Ash Ketchum</h2>
+
+            <span>
+                Cuenta: •••• 0151
+            </span>
+
+        </section>
+
+
+        <!-- =========================
+             OPERACIONES PRINCIPALES
+        ========================== -->
+        <section class="operations">
+
+            <h3>¿Qué deseas hacer?</h3>
+
+            <div class="row">
+
+
+                <!-- DEPOSITAR -->
+                <div class="col-md-6 mb-3">
+
+                    <a href="deposito.html" class="operation-card">
+
+                        <span class="operation-icon">
+                            ↓
+                        </span>
+
+                        <strong>
+                            Depositar
+                        </strong>
+
+                        <small>
+                            Ingresa dinero a tu cuenta
+                        </small>
+
+                    </a>
+
+                </div>
+
+
+                <!-- RETIRAR -->
+                <div class="col-md-6 mb-3">
+
+                    <a href="retiro.html" class="operation-card">
+
+                        <span class="operation-icon">
+                            ↑
+                        </span>
+
+                        <strong>
+                            Retirar
+                        </strong>
+
+                        <small>
+                            Retira dinero de tu cuenta
+                        </small>
+
+                    </a>
+
+                </div>
+
+
+                <!-- CONSULTAR SALDO -->
+                <div class="col-md-6 mb-3">
+
+                    <a href="saldo.html" class="operation-card">
+
+                        <span class="operation-icon">
+                            $
+                        </span>
+
+                        <strong>
+                            Consultar saldo
+                        </strong>
+
+                        <small>
+                            Consulta tu saldo disponible
+                        </small>
+
+                    </a>
+
+                </div>
+
+
+                <!-- PAGAR SERVICIOS -->
+                <div class="col-md-6 mb-3">
+
+                    <a href="servicios.html" class="operation-card">
+
+                        <span class="operation-icon">
+                            ⚡
+                        </span>
+
+                        <strong>
+                            Pagar servicios
+                        </strong>
+
+                        <small>
+                            Realiza tus pagos fácilmente
+                        </small>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             OPCIONES ADICIONALES
+        ========================== -->
+        <section class="secondary-options">
+
+            <a href="historial.html" class="btn btn-light">
+                Historial de transacciones
+            </a>
+
+            <a href="graficos.html" class="btn btn-light">
+                Gráficos
+            </a>
+
+        </section>
+
+    </div>
+
+</body>
+
+</html>
