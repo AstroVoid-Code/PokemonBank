@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,14 +12,27 @@
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
-    <!-- Nuestro CSS -->
+    <!-- CSS personalizado -->
     <link rel="stylesheet" href="css/operaciones.css">
+
+    <!-- DATOS GENERALES DEL BANCO -->
+    <script src="js/datos.js"></script>
+
+    <!-- CONTROL DE SESIÓN -->
+    <script>
+        // Impedir acceso sin iniciar sesión
+        if (sessionStorage.getItem("sesionPokemonBank") !== "activa") {
+            window.location.replace("index.html");
+        }
+    </script>
+
 </head>
 
 <body>
 
     <div class="chart-container">
 
+        <!-- ENCABEZADO -->
         <header class="operation-header">
 
             <a href="menu.html" class="back-link">
@@ -29,6 +43,7 @@
 
         </header>
 
+        <!-- CONTENIDO PRINCIPAL -->
         <main class="chart-content">
 
             <div class="operation-title">
@@ -45,34 +60,51 @@
 
             </div>
 
-            <!-- RESUMEN -->
+            <!-- RESUMEN DE TRANSACCIONES -->
             <div class="transaction-summary">
 
                 <div class="summary-card">
+
                     <span>Depósitos</span>
-                    <strong id="totalDepositos">0</strong>
+
+                    <strong id="totalDepositos">
+                        0
+                    </strong>
+
                 </div>
 
                 <div class="summary-card">
+
                     <span>Retiros</span>
-                    <strong id="totalRetiros">0</strong>
+
+                    <strong id="totalRetiros">
+                        0
+                    </strong>
+
                 </div>
 
                 <div class="summary-card">
+
                     <span>Servicios</span>
-                    <strong id="totalServicios">0</strong>
+
+                    <strong id="totalServicios">
+                        0
+                    </strong>
+
                 </div>
 
             </div>
 
-            <!-- GRÁFICO -->
+            <!-- GRÁFICO DE BARRAS -->
             <div class="chart-box">
 
                 <canvas id="transactionChart"></canvas>
 
             </div>
 
-            <a href="menu.html"
+            <!-- VOLVER AL MENÚ -->
+            <a
+                href="menu.html"
                 class="btn-confirm balance-button">
 
                 Volver al menú principal
@@ -83,14 +115,20 @@
 
     </div>
 
+    <!-- ======================================
+         BIBLIOTECAS JAVASCRIPT
+    ======================================= -->
 
-    <!-- Chart.js -->
+    <!-- Chart.js: gráficos interactivos -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- Datos del banco -->
-    <script src="js/datos.js"></script>
+    <!-- ======================================
+         FUNCIONES DE POKÉMON BANK
+    ======================================= -->
 
-    <!-- Nuestro gráfico -->
+    <!-- datos.js ya se cargó en el encabezado -->
+
+    <!-- Generar gráfico desde el historial -->
     <script src="js/graficos.js"></script>
 
 </body>

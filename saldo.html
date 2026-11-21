@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,14 +12,23 @@
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
-    <!-- CSS -->
+    <!-- CSS personalizado -->
     <link rel="stylesheet" href="css/operaciones.css">
+
+    <!-- DATOS Y CONTROL DE SESIÓN -->
+    <script src="js/datos.js"></script>
+
+    <script>
+        verificarSesion();
+    </script>
+
 </head>
 
 <body>
 
     <div class="operation-container">
 
+        <!-- ENCABEZADO -->
         <header class="operation-header">
 
             <a href="menu.html" class="back-link">
@@ -29,6 +39,7 @@
 
         </header>
 
+        <!-- CONTENIDO PRINCIPAL -->
         <main class="operation-content">
 
             <div class="operation-title">
@@ -39,10 +50,13 @@
 
                 <h2>Saldo disponible</h2>
 
-                <p>Consulta el saldo actual de tu cuenta.</p>
+                <p>
+                    Consulta el saldo actual de tu cuenta.
+                </p>
 
             </div>
 
+            <!-- TARJETA DE SALDO -->
             <div class="balance-card">
 
                 <p>Saldo disponible</p>
@@ -51,25 +65,54 @@
                     $0.00
                 </h2>
 
-                <span>
-                    Cuenta: •••• 0151
+                <!-- NÚMERO DE CUENTA DINÁMICO -->
+                <span id="accountNumber">
+                    Cuenta: Cargando...
                 </span>
 
             </div>
 
-            <a href="menu.html" class="btn-confirm balance-button">
+            <!-- VOLVER AL MENÚ -->
+            <a
+                href="menu.html"
+                class="btn-confirm balance-button">
+
                 Volver al menú principal
+
             </a>
 
         </main>
 
     </div>
 
-    <!-- Primero cargamos los datos -->
-    <script src="js/datos.js"></script>
+    <!-- ======================================
+         JAVASCRIPT DE POKÉMON BANK
+    ======================================= -->
 
-    <!-- Después la consulta de saldo -->
+    <!-- Mostrar saldo y número de cuenta -->
     <script src="js/saldo.js"></script>
+
+    <!-- MOSTRAR NÚMERO DE CUENTA -->
+    <script>
+
+        if (verificarSesion()) {
+
+            const usuario = obtenerUsuario();
+
+            if (usuario) {
+
+                document.getElementById("accountNumber")
+                    .textContent = "Cuenta: " + usuario.cuenta;
+
+            } else {
+
+                cerrarSesion();
+
+            }
+
+        }
+
+    </script>
 
 </body>
 

@@ -1,34 +1,38 @@
-// Obtener historial guardado
+
+// ==========================================
+// GRÁFICOS DE TRANSACCIONES - POKÉMON BANK
+// ==========================================
+
+// Obtener historial almacenado en LocalStorage
 const historial = obtenerHistorial();
 
-
-// Contadores
+// Inicializar contadores
 let depositos = 0;
 let retiros = 0;
 let servicios = 0;
 
-
-// Recorrer todas las transacciones
+// Contar las transacciones registradas
 historial.forEach(function(transaccion) {
 
-    if (transaccion.tipo === "Depósito") {
+    switch (transaccion.tipo) {
 
-        depositos++;
+        case "Depósito":
+            depositos++;
+            break;
 
-    } else if (transaccion.tipo === "Retiro") {
+        case "Retiro":
+            retiros++;
+            break;
 
-        retiros++;
-
-    } else if (transaccion.tipo === "Servicio") {
-
-        servicios++;
+        case "Servicio":
+            servicios++;
+            break;
 
     }
 
 });
 
-
-// Mostrar cantidades en las tarjetas
+// Mostrar totales en las tarjetas
 document.getElementById("totalDepositos").textContent =
     depositos;
 
@@ -38,74 +42,72 @@ document.getElementById("totalRetiros").textContent =
 document.getElementById("totalServicios").textContent =
     servicios;
 
+// Obtener elemento del gráfico
+const canvas = document.getElementById("transactionChart");
 
-// Obtener canvas
-const ctx =
-    document.getElementById("transactionChart");
+// Verificar que exista el gráfico y Chart.js
+if (canvas && typeof Chart !== "undefined") {
 
+    new Chart(canvas, {
 
-// Crear gráfico
-new Chart(ctx, {
+        type: "bar",
 
-    type: "bar",
+        data: {
 
-    data: {
-
-        labels: [
-            "Depósitos",
-            "Retiros",
-            "Servicios"
-        ],
-
-        datasets: [{
-
-            label: "Cantidad de transacciones",
-
-            data: [
-                depositos,
-                retiros,
-                servicios
+            labels: [
+                "Depósitos",
+                "Retiros",
+                "Servicios"
             ],
 
-            backgroundColor: [
-                "#198754",
-                "#dc3545",
-                "#19376d"
-            ],
+            datasets: [{
 
-            borderWidth: 0,
+                label: "Cantidad de transacciones",
 
-            borderRadius: 6
+                data: [
+                    depositos,
+                    retiros,
+                    servicios
+                ],
 
-        }]
+                backgroundColor: [
+                    "#198754",
+                    "#dc3545",
+                    "#19376d"
+                ],
 
-    },
+                borderWidth: 0,
 
-    options: {
+                borderRadius: 6
 
-        responsive: true,
-
-        maintainAspectRatio: false,
-
-        plugins: {
-
-            legend: {
-                display: false
-            }
+            }]
 
         },
 
-        scales: {
+        options: {
 
-            y: {
+            responsive: true,
 
-                beginAtZero: true,
+            maintainAspectRatio: false,
 
-                ticks: {
+            plugins: {
 
-                    stepSize: 1,
+                legend: {
+                    display: false
+                }
 
-                    precision: 0
+            },
+
+            scales: {
+
+                y: {
+
+                    beginAtZero: true,
+
+                    ticks: {
+                        stepSize: 1,
+                        precision: 0
+                    }
 
                 }
 
@@ -113,6 +115,6 @@ new Chart(ctx, {
 
         }
 
-    }
+    });
 
-});
+}

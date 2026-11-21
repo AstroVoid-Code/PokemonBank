@@ -1,48 +1,75 @@
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Pokémon Bank | ATM</title>
 
     <!-- Bootstrap 4 -->
     <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
-    <!-- Nuestro CSS -->
+    <!-- Estilos personalizados -->
     <link rel="stylesheet" href="css/styles.css">
+
 </head>
 
 <body>
 
     <main>
+
         <h1>Pokémon Bank</h1>
 
         <h2>Bienvenido</h2>
+
         <p>Ingresa tu PIN para continuar</p>
 
+        <!-- FORMULARIO DE INICIO DE SESIÓN -->
         <form id="loginForm">
-            <label for="pin">PIN de seguridad</label>
 
-            <input 
+            <label for="pin">
+                PIN de seguridad
+            </label>
+
+            <input
                 type="password"
                 id="pin"
                 name="pin"
+                minlength="4"
                 maxlength="4"
+                inputmode="numeric"
+                pattern="[0-9]{4}"
+                autocomplete="off"
                 placeholder="••••"
                 required
             >
 
-            <button type="submit" class="btn btn-primary btn-block">
+            <button
+                type="submit"
+                class="btn btn-primary btn-block"
+            >
                 Ingresar
             </button>
+
         </form>
 
         <p>Tu dinero, siempre a salvo.</p>
+
     </main>
 
+    <!-- SWEETALERT -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- DATOS DEL USUARIO Y LOCALSTORAGE -->
+    <script src="js/datos.js"></script>
+
+    <!-- VALIDACIÓN DEL LOGIN -->
     <script src="js/login.js"></script>
 
 </body>
+
 </html>

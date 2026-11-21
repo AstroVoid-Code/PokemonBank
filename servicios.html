@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,14 +12,23 @@
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
-    <!-- CSS -->
+    <!-- Estilos personalizados -->
     <link rel="stylesheet" href="css/operaciones.css">
+
+    <!-- DATOS Y CONTROL DE SESIÓN -->
+    <script src="js/datos.js"></script>
+
+    <script>
+        verificarSesion();
+    </script>
+
 </head>
 
 <body>
 
     <div class="operation-container">
 
+        <!-- ENCABEZADO -->
         <header class="operation-header">
 
             <a href="menu.html" class="back-link">
@@ -29,6 +39,7 @@
 
         </header>
 
+        <!-- CONTENIDO PRINCIPAL -->
         <main class="operation-content">
 
             <div class="operation-title">
@@ -39,13 +50,16 @@
 
                 <h2>Pago de servicios</h2>
 
-                <p>Selecciona el servicio que deseas pagar.</p>
+                <p>
+                    Selecciona el servicio que deseas pagar.
+                </p>
 
             </div>
 
+            <!-- FORMULARIO -->
             <form id="serviceForm">
 
-                <!-- SERVICIO -->
+                <!-- TIPO DE SERVICIO -->
                 <label for="serviceType">
                     Tipo de servicio
                 </label>
@@ -78,8 +92,7 @@
 
                 </select>
 
-
-                <!-- FACTURA -->
+                <!-- NÚMERO DE FACTURA -->
                 <label for="invoiceNumber">
                     Número de factura
                 </label>
@@ -89,11 +102,11 @@
                     id="invoiceNumber"
                     class="service-input"
                     placeholder="Ejemplo: 458721"
+                    maxlength="30"
                     required
                 >
 
-
-                <!-- MONTO -->
+                <!-- MONTO A PAGAR -->
                 <label for="serviceAmount">
                     Monto a pagar
                 </label>
@@ -105,7 +118,7 @@
                     <input
                         type="number"
                         id="serviceAmount"
-                        min="0"
+                        min="0.01"
                         step="0.01"
                         placeholder="0.00"
                         required
@@ -113,11 +126,12 @@
 
                 </div>
 
-
                 <!-- SALDO DISPONIBLE -->
                 <div class="available-balance">
 
-                    <span>Saldo disponible</span>
+                    <span>
+                        Saldo disponible
+                    </span>
 
                     <strong id="availableBalance">
                         $0.00
@@ -125,7 +139,7 @@
 
                 </div>
 
-
+                <!-- BOTÓN DE CONFIRMACIÓN -->
                 <button
                     type="submit"
                     class="btn-confirm"
@@ -139,14 +153,23 @@
 
     </div>
 
+    <!-- ======================================
+         BIBLIOTECAS JAVASCRIPT
+    ======================================= -->
 
-    <!-- SweetAlert -->
+    <!-- SweetAlert: mensajes interactivos -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <!-- Datos generales -->
-    <script src="js/datos.js"></script>
+    <!-- jsPDF: comprobantes de pago -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-    <!-- Pago de servicios -->
+    <!-- ======================================
+         JAVASCRIPT DE POKÉMON BANK
+    ======================================= -->
+
+    <!-- datos.js ya se cargó en el encabezado -->
+
+    <!-- Procesamiento de pagos -->
     <script src="js/servicios.js"></script>
 
 </body>

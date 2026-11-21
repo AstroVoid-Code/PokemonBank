@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,19 +12,33 @@
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
-    <!-- CSS -->
+    <!-- CSS personalizado -->
     <link rel="stylesheet" href="css/operaciones.css">
+
+    <!-- Verificar sesión antes de mostrar la página -->
+    <script src="js/datos.js"></script>
+    <script>
+        verificarSesion();
+    </script>
+
 </head>
 
 <body>
 
     <div class="operation-container">
 
+        <!-- ENCABEZADO -->
         <header class="operation-header">
-            <a href="menu.html" class="back-link">← Volver</a>
+
+            <a href="menu.html" class="back-link">
+                ← Volver
+            </a>
+
             <h1>Pokémon Bank</h1>
+
         </header>
 
+        <!-- CONTENIDO PRINCIPAL -->
         <main class="operation-content">
 
             <div class="operation-title">
@@ -31,10 +46,12 @@
                 <div class="operation-symbol">↓</div>
 
                 <h2>Realizar depósito</h2>
+
                 <p>Ingresa el monto que deseas depositar.</p>
 
             </div>
 
+            <!-- FORMULARIO DE DEPÓSITO -->
             <form id="depositForm">
 
                 <label for="depositAmount">
@@ -48,7 +65,7 @@
                     <input
                         type="number"
                         id="depositAmount"
-                        min="0"
+                        min="0.01"
                         step="0.01"
                         placeholder="0.00"
                         required
@@ -60,6 +77,7 @@
                     Selecciona un monto rápido
                 </p>
 
+                <!-- MONTOS RÁPIDOS -->
                 <div class="quick-amounts">
 
                     <button
@@ -92,6 +110,7 @@
 
                 </div>
 
+                <!-- CONFIRMAR OPERACIÓN -->
                 <button
                     type="submit"
                     class="btn-confirm">
@@ -106,14 +125,23 @@
 
     </div>
 
+    <!-- ======================================
+         BIBLIOTECAS JAVASCRIPT
+    ======================================= -->
 
-    <!-- SweetAlert -->
+    <!-- SweetAlert: mensajes interactivos -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <!-- Datos del banco -->
-    <script src="js/datos.js"></script>
+    <!-- jsPDF: generación de comprobantes PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-    <!-- Depósito -->
+    <!-- ======================================
+         FUNCIONES DE POKÉMON BANK
+    ======================================= -->
+
+    <!-- datos.js ya se cargó en el encabezado -->
+
+    <!-- Operación de depósito -->
     <script src="js/deposito.js"></script>
 
 </body>
